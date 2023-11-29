@@ -19,7 +19,20 @@
 
         $resultado = mysqli_query($conexion, $sql);
 
-        
+        if($resultado){
+            echo " <script language='JavaScript'>
+                    alert('Los datos fueron ingresados correctamente a la BD');
+                    location.assign('Listas.php');
+                    </script>";
+        } else {
+            echo " <script language='JavaScript'>
+            alert('ERROR: Los datos NO fueron ingresados correctamente a la BD');
+            location.assign('Listas.php');
+            </script>";
+        }
+        mysqli_close($conexion);
+
+    } else {
     ?>
     <h1>Agregar nuevo alumno</h1>
     <form action="<?=$_SERVER['PHP_SELF']?>" method="post">
