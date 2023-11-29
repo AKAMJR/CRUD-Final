@@ -24,7 +24,7 @@ include("conexion.php");
         $resultado = mysqli_query($conexion, $sql);
 
         if ($resultado) {
-            echo "<script language='JavaScript'>
+            echo "<script language='JavaScript'
             alert('Los datos se actualizaron correctamente');
             location.assign('Listas.php');
             </script>";
