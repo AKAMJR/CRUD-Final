@@ -1,4 +1,27 @@
+<?php
+// Incluir el archivo de conexión
+include 'conexion2.php';
 
+// Verificar si se ha enviado el formulario
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Obtener datos del formulario
+    $correo = $_POST['correo'];
+    $contrasena = $_POST['contrasena'];
+
+    // Consulta SQL para insertar el nuevo usuario
+    $sql = "INSERT INTO usuarios (correo, contrasena) VALUES ('$correo', '$contrasena')";
+    
+    // Ejecutar la consulta
+    if (mysqli_query($conexion, $sql)) {
+        echo "Registro exitoso";
+    } else {
+        echo "Error al registrar: " . mysqli_error($conexion);
+    }
+
+    // Cerrar la conexión
+    mysqli_close($conexion);
+}
+?>
 
 <!DOCTYPE html>
 <html lang="es">
